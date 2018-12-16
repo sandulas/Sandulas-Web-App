@@ -1,13 +1,33 @@
 ﻿{
   "name": "SandulasBot",
+  "padlock": "",
+  "version": "2.0",
   "services": [
+    {
+      "tenantId": "e2d634bc-de09-4e74-a482-fd76330d6eab",
+      "subscriptionId": "49171e91-c821-47b2-b8d3-8b166b456be9",
+      "resourceGroup": "Default_Resource_Group",
+      "serviceName": "SandulasBot",
+      "type": "abs",
+      "name": "SandulasBot",
+      "id": "1"
+    },
+    {
+      "connectionString": "mAeuK7JCTPu5shB7fy9FQA==!iFrngnKRIlLvAp7b7U7PRGc0xfyD87JTonPYiLPuwfU1M9PC8M0TdsgtUuVo0pxJfVppfH1jsYKEQFyIzqIlNhAw3CyYxl0jkcgggo3v4qeBOpryFZypbv+gO16To6z5mgWcdpWgTVyJV8mERsyUssnC2BWTGalRTOFJfVMa7jTI4N5eU/XbK2UPCnzKMlrKxuxl+ODuTfVjSlPWJiA5lQ==",
+      "tenantId": "e2d634bc-de09-4e74-a482-fd76330d6eab",
+      "subscriptionId": "49171e91-c821-47b2-b8d3-8b166b456be9",
+      "resourceGroup": "Default_Resource_Group",
+      "serviceName": "sandulasstorage",
+      "type": "blob",
+      "id": "2"
+    },
     {
       "type": "endpoint",
       "name": "development",
       "endpoint": "http://localhost:5000/api/messages",
       "appId": "",
       "appPassword": "",
-      "id": "1"
+      "id": "3"
     },
     {
       "type": "endpoint",
@@ -15,9 +35,7 @@
       "endpoint": "https://sandulaswebapp.azurewebsites.net/api/messages",
       "appId": "<YOUR APP ID>",
       "appPassword": "<YOUR APP PASSWORD>",
-      "id": "2"
+      "id": "4"
     }
-  ],
-  "padlock": "",
-  "version": "2.0"
+  ]
 }
