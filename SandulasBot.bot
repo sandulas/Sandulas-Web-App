@@ -33,8 +33,8 @@
       "type": "endpoint",
       "name": "production",
       "endpoint": "https://sandulaswebapp.azurewebsites.net/api/messages",
-      "appId": "<YOUR APP ID>",
-      "appPassword": "<YOUR APP PASSWORD>",
+      "appId": "2b917fd7-470e-4a19-8e4f-12689bc6414e",
+      "appPassword": "2io5ZER9cGVFGhgRjEpD8w==!UbvpDE8LLuugQJ9qZGCXfxlyGIlPzDbbjseZkpmPrvc=",
       "id": "4"
     }
   ]
