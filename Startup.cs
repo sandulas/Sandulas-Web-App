@@ -9,13 +9,18 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Bot.Builder.Integration.AspNet.Core;
 using Microsoft.Bot.Configuration;
 using Microsoft.Bot.Connector.Authentication;
+using Microsoft.Bot.Builder.BotFramework;
 
 namespace SandulasWebApp
 {
 	public class Startup
 	{
+		string hostingEnvironment;
+
 		public Startup(IHostingEnvironment env)
 		{
+			hostingEnvironment = env.EnvironmentName;
+
 			var builder = new ConfigurationBuilder()
 				.SetBasePath(env.ContentRootPath)
 				.AddJsonFile("appsettings.json", optional: true, reloadOnChange: true);
@@ -55,13 +60,14 @@ namespace SandulasWebApp
 				services.AddSingleton(sp => botConfig);
 
 				// Retrieve current endpoint.
-				var service = botConfig.Services.Where(s => s.Type == "endpoint" && s.Name == "development").FirstOrDefault();
+				var service = botConfig.Services.Where(s => s.Type == "endpoint" && s.Name.ToLower() == hostingEnvironment.ToLower()).FirstOrDefault();
 				if (!(service is EndpointService endpointService))
 				{
-					throw new InvalidOperationException($"The .bot file does not contain a development endpoint.");
+					throw new InvalidOperationException($"The .bot file does not contain a { hostingEnvironment } endpoint.");
 				}
 
 				options.CredentialProvider = new SimpleCredentialProvider(endpointService.AppId, endpointService.AppPassword);
+				options.ChannelProvider = new ConfigurationChannelProvider(Configuration);
 
 				// Catches any errors that occur during a conversation turn and logs them.
 				options.OnTurnError = async (context, exception) =>
