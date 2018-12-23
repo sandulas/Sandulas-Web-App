@@ -17,9 +17,6 @@ namespace SandulasWebApp
 	/// <seealso cref="https://docs.microsoft.com/en-us/aspnet/core/fundamentals/dependency-injection?view=aspnetcore-2.1"/>
 	public class SandulasBot : IBot
 	{
-		/// <summary>
-		/// Initializes a new instance of the class.
-		/// </summary>                        
 		public SandulasBot()
 		{
 		}
@@ -36,13 +33,13 @@ namespace SandulasWebApp
 		/// <seealso cref="ConversationState"/>
 		public async Task OnTurnAsync(ITurnContext turnContext, CancellationToken cancellationToken = default(CancellationToken))
 		{
-			// Handle Message activity type, which is the main activity type for shown within a conversational interface
-			// Message activities may contain text, speech, interactive cards, and binary or unknown attachments.
-			// see https://aka.ms/about-bot-activity-message to learn more about the message and other activity types
+			/// Handle Message activity type, which is the main activity type for shown within a conversational interface
+			/// Message activities may contain text, speech, interactive cards, and binary or unknown attachments.
+			/// see https://aka.ms/about-bot-activity-message to learn more about the message and other activity types
 			if (turnContext.Activity.Type == ActivityTypes.Message)
 			{
 				// Echo back to the user whatever they typed.             
-				await turnContext.SendActivityAsync("Sandulas Hello World", cancellationToken: cancellationToken);
+				await turnContext.SendActivityAsync($"You said: { turnContext.Activity.Text }", cancellationToken: cancellationToken);
 			}
 		}
 	}
