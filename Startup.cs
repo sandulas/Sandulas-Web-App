@@ -10,6 +10,8 @@ using Microsoft.Bot.Builder.Integration.AspNet.Core;
 using Microsoft.Bot.Configuration;
 using Microsoft.Bot.Connector.Authentication;
 using Microsoft.Bot.Builder.BotFramework;
+using System.Collections.Generic;
+using Microsoft.Bot.Builder.AI.QnA;
 
 namespace SandulasWebApp
 {
@@ -32,33 +34,40 @@ namespace SandulasWebApp
 		// This method gets called by the runtime. Use this method to add services to the container.
 		public void ConfigureServices(IServiceCollection services)
 		{
+			#region Load bot configuration and QnA services
+
+			// Loads .bot configuration file and adds a singleton that your Bot can access through dependency injection.
+			var secretKey = Configuration.GetSection("botFileSecret")?.Value;
+			var botFilePath = Configuration.GetSection("botFilePath")?.Value;
+			if (!File.Exists(botFilePath))
+			{
+				throw new FileNotFoundException($"The .bot configuration file was not found. botFilePath: {botFilePath}");
+			}
+
+			BotConfiguration botConfig = null;
+			try
+			{
+				botConfig = BotConfiguration.Load(botFilePath ?? @".\BotConfiguration.bot", secretKey);
+			}
+			catch
+			{
+				var msg = @"Error reading bot file. Please ensure you have valid botFilePath and botFileSecret set for your environment.
+					- You can find the botFilePath and botFileSecret in the Azure App Service application settings.
+					- If you are running this bot locally, consider adding a appsettings.json file with botFilePath and botFileSecret.
+					- See https://aka.ms/about-bot-file to learn more about .bot file its use and bot configuration.
+				";
+				throw new InvalidOperationException(msg);
+			}
+
+			services.AddSingleton(sp => botConfig);
+			services.AddSingleton(sp => initQnABotServices(botConfig));
+
+			#endregion
+
+			#region Add bot service
+
 			services.AddBot<SandulasBot>(options =>
 			{
-				var secretKey = Configuration.GetSection("botFileSecret")?.Value;
-				var botFilePath = Configuration.GetSection("botFilePath")?.Value;
-				if (!File.Exists(botFilePath))
-				{
-					throw new FileNotFoundException($"The .bot configuration file was not found. botFilePath: {botFilePath}");
-				}
-
-				// Loads .bot configuration file and adds a singleton that your Bot can access through dependency injection.
-				BotConfiguration botConfig = null;
-				try
-				{
-					botConfig = BotConfiguration.Load(botFilePath ?? @".\BotConfiguration.bot", secretKey);
-				}
-				catch
-				{
-					var msg = @"Error reading bot file. Please ensure you have valid botFilePath and botFileSecret set for your environment.
-    - You can find the botFilePath and botFileSecret in the Azure App Service application settings.
-    - If you are running this bot locally, consider adding a appsettings.json file with botFilePath and botFileSecret.
-    - See https://aka.ms/about-bot-file to learn more about .bot file its use and bot configuration.
-    ";
-					throw new InvalidOperationException(msg);
-				}
-
-				services.AddSingleton(sp => botConfig);
-
 				// Retrieve current endpoint.
 				var service = botConfig.Services.Where(s => s.Type == "endpoint" && s.Name.ToLower() == hostingEnvironment.ToLower()).FirstOrDefault();
 				if (!(service is EndpointService endpointService))
@@ -67,14 +76,16 @@ namespace SandulasWebApp
 				}
 
 				options.CredentialProvider = new SimpleCredentialProvider(endpointService.AppId, endpointService.AppPassword);
-				options.ChannelProvider = new ConfigurationChannelProvider(Configuration);
+				//options.ChannelProvider = new ConfigurationChannelProvider(Configuration);
 
-				// Catches any errors that occur during a conversation turn and logs them.
+				// Catches any errors that occur during a conversation turn
 				options.OnTurnError = async (context, exception) =>
 				{
 					await context.SendActivityAsync("Sorry, it looks like something went wrong.");
 				};
 			});
+
+			#endregion
 
 			services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 		}
@@ -101,6 +112,30 @@ namespace SandulasWebApp
 					template: "{controller=Home}/{action=Index}/{id?}");
 			});
 			app.UseBotFramework();
+		}
+
+		private QnABotServices initQnABotServices(BotConfiguration botConfig)
+		{
+			var qnaServices = new Dictionary<string, QnAMaker>();
+
+			foreach (var service in botConfig.Services)
+			{
+				if (service.Type == ServiceTypes.QnA)
+				{
+					var qnaService = (QnAMakerService)service;
+					var qnaEndPoint = new QnAMakerEndpoint()
+					{
+						KnowledgeBaseId = qnaService.KbId,
+						EndpointKey = qnaService.EndpointKey,
+						Host = qnaService.Hostname
+					};
+
+					var qnaMaker = new QnAMaker(qnaEndPoint);
+					qnaServices.Add(qnaService.Name, qnaMaker);
+				}
+			}
+
+			return new QnABotServices(qnaServices);
 		}
 	}
 }

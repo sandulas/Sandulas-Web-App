@@ -1,6 +1,8 @@
-﻿using System.Threading;
+﻿using System;
+using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.Bot.Builder;
+using Microsoft.Bot.Builder.AI.QnA;
 using Microsoft.Bot.Schema;
 
 namespace SandulasWebApp
@@ -17,8 +19,11 @@ namespace SandulasWebApp
 	/// <seealso cref="https://docs.microsoft.com/en-us/aspnet/core/fundamentals/dependency-injection?view=aspnetcore-2.1"/>
 	public class SandulasBot : IBot
 	{
-		public SandulasBot()
+		private readonly QnAMaker qnaService;
+
+		public SandulasBot(QnABotServices qnaServices)
 		{
+			qnaService = qnaServices.QnAServices["SandulasQnA"] ?? throw new Exception(@"'SandulasQnA' service not found in .bot file");
 		}
 
 		/// <summary>
@@ -38,8 +43,27 @@ namespace SandulasWebApp
 			/// see https://aka.ms/about-bot-activity-message to learn more about the message and other activity types
 			if (turnContext.Activity.Type == ActivityTypes.Message)
 			{
-				// Echo back to the user whatever they typed.             
-				await turnContext.SendActivityAsync($"You said: { turnContext.Activity.Text }", cancellationToken: cancellationToken);
+				// Get the answers from the QnA maker service
+				var responses = await qnaService.GetAnswersAsync(turnContext);
+
+				// Compose the response message
+				string message = "";
+
+				if (responses == null || responses.Length == 0)
+				{
+					message = "No aswers found in the KB";
+				}
+				else
+				{
+					foreach (var response in responses)
+					{
+						message += $@"{ response.Answer }
+							-----------------------------
+							Score: { response.Score }";
+					}
+				}
+
+				await turnContext.SendActivityAsync(message, cancellationToken: cancellationToken);
 			}
 		}
 	}
