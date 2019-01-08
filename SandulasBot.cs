@@ -21,9 +21,9 @@ namespace SandulasWebApp
 	{
 		private readonly QnAMaker qnaService;
 
-		public SandulasBot(QnABotServices qnaServices)
+		public SandulasBot(QnAServices qnaServices)
 		{
-			qnaService = qnaServices.QnAServices["SandulasQnA"] ?? throw new Exception(@"'SandulasQnA' service not found in .bot file");
+			//qnaService = qnaServices.QnAMakers["SandulasQnA"];
 		}
 
 		/// <summary>
@@ -43,6 +43,8 @@ namespace SandulasWebApp
 			/// see https://aka.ms/about-bot-activity-message to learn more about the message and other activity types
 			if (turnContext.Activity.Type == ActivityTypes.Message)
 			{
+				await turnContext.SendActivityAsync("Test response", cancellationToken: cancellationToken); return;
+
 				// Get the answers from the QnA maker service
 				var responses = await qnaService.GetAnswersAsync(turnContext);
 

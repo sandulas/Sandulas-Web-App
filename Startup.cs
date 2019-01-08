@@ -114,7 +114,7 @@ namespace SandulasWebApp
 			app.UseBotFramework();
 		}
 
-		private QnABotServices initQnABotServices(BotConfiguration botConfig)
+		private QnAServices initQnABotServices(BotConfiguration botConfig)
 		{
 			var qnaServices = new Dictionary<string, QnAMaker>();
 
@@ -135,7 +135,7 @@ namespace SandulasWebApp
 				}
 			}
 
-			return new QnABotServices(qnaServices);
+			return new QnAServices(qnaServices);
 		}
 	}
 }
