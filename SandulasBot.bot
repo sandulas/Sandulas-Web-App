@@ -40,10 +40,10 @@
 	{
 		"type": "qna",
 		"name": "SandulasQnA",
-		"kbId": "62bac2f5-1079-414e-81c1-e0c4426eb77c",
+		"kbId": "3bc412e0-c306-4d01-a47b-82ed25305dc6",
 		"subscriptionKey": "",
-		"endpointKey": "a8c5aaa4-148d-42db-900f-f24f2ead37d4",
-		"hostname": "https://testqnamakerapp.azurewebsites.net/qnamaker",
+		"endpointKey": "5431a727-1901-4ab6-91eb-e6226a68129e",
+		"hostname": "https://sandulaswebapp.azurewebsites.net/qnamaker",
 		"id": "5"
 	}
   ]
