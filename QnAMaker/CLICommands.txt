@@ -1,0 +1,60 @@
+﻿Create QnA Maker cognitive service:
+
+az cognitiveservices account create -n SandulasQnAMaker -g Default_Resource_Group --kind QnAMaker --sku F0 -l westus --api-properties qnaRuntimeEndpoint=https://sandulaswebapp.azurewebsites.net --yes
+
+--------------------------------------------------------------------------------------------------------------------------------------
+
+Query QnA Maker KB:
+
+curl -X POST https://sandulaswebapp.azurewebsites.net/qnamaker/knowledgebases/3bc412e0-c306-4d01-a47b-82ed25305dc6/generateAnswer \
+-H "Authorization: EndpointKey 5431a727-1901-4ab6-91eb-e6226a68129e" \
+-H "Content-type: application/json" \
+-d "{'question':'Who are you'}"
+
+--------------------------------------------------------------------------------------------------------------------------------------
+
+Download QnA Maker KB:
+
+curl -v -X GET "https://westus.api.cognitive.microsoft.com/qnamaker/v4.0/knowledgebases/3bc412e0-c306-4d01-a47b-82ed25305dc6/prod/qna" \
+-H "Ocp-Apim-Subscription-Key: 2a82daef67ac44b2bcb9dd6b8b6e964e"
+
+--------------------------------------------------------------------------------------------------------------------------------------
+
+Replace QnA Maker KB:
+
+curl -v -X PUT "https://westus.api.cognitive.microsoft.com/qnamaker/v4.0/knowledgebases/3bc412e0-c306-4d01-a47b-82ed25305dc6" \
+-H "Content-Type: application/json" \
+-H "Ocp-Apim-Subscription-Key: 2a82daef67ac44b2bcb9dd6b8b6e964e" \
+\
+-d @- << EOF
+{
+	"qnaList": [
+		{
+			"id": 1,
+			"answer": "I'm a bot created by Adrian Sandu, I can answer questions about his professional experience.",
+			"source": "Editorial",
+			"questions": [
+				"Who are you?",
+				"What are you?",
+				"What is your name?",
+				"What can you do?",
+				"Who am I talking to?"
+			],
+			"metadata": [],
+			"alternateQuestionClusters": []
+		},
+		{
+			"id": 2,
+			"answer": "Answer 2",
+			"source": "Editorial",
+			"questions": [
+				"Question 2"
+			],
+			"metadata": [],
+			"alternateQuestionClusters": []
+		}
+	],
+	"urls": [],
+	"files": []
+}
+EOF

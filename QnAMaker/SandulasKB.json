@@ -1,0 +1,30 @@
+﻿{
+	"qnaList": [
+		{
+			"id": 1,
+			"answer": "I'm a bot created by Adrian Sandu, I can answer questions about his professional experience.",
+			"source": "Editorial",
+			"questions": [
+				"Who are you?",
+				"What are you?",
+				"What is your name?",
+				"What can you do?",
+				"Who am I talking to?"
+			],
+			"metadata": [],
+			"alternateQuestionClusters": []
+		},
+		{
+			"id": 2,
+			"answer": "Test answer 2",
+			"source": "Editorial",
+			"questions": [
+				"Test question 2"
+			],
+			"metadata": [],
+			"alternateQuestionClusters": []
+		}
+	],
+	"urls": [],
+	"files": []
+}
