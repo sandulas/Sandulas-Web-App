@@ -17,6 +17,7 @@ namespace SandulasWebApp
 {
 	public class Startup
 	{
+		public IConfiguration Configuration { get; }
 		string hostingEnvironment;
 
 		public Startup(IHostingEnvironment env)
@@ -28,8 +29,6 @@ namespace SandulasWebApp
 				.AddJsonFile("appsettings.json", optional: true, reloadOnChange: true);
 			Configuration = builder.Build();
 		}
-
-		public IConfiguration Configuration { get; }
 
 		// This method gets called by the runtime. Use this method to add services to the container.
 		public void ConfigureServices(IServiceCollection services)
@@ -105,6 +104,8 @@ namespace SandulasWebApp
 
 			//app.UseHttpsRedirection();
 			app.UseStaticFiles();
+
+			//https://stormpath.com/blog/routing-in-asp-net-core
 			app.UseMvc(routes =>
 			{
 				routes.MapRoute(
