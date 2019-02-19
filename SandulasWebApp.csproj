@@ -17,4 +17,8 @@
     <None Remove=".gitignore" />
     <None Remove=".qnamakerrc" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Remove="Views\Home\Index.cshtml" />
+    <Content Remove="Views\Home\Privacy.cshtml" />
+  </ItemGroup>
 </Project>

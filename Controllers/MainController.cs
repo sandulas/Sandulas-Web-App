@@ -8,7 +8,7 @@ using SandulasWebApp.Models;
 
 namespace SandulasWebApp.Controllers
 {
-    public class HomeController : Controller
+    public class MainController : Controller
     {
         public IActionResult Index()
         {
@@ -17,20 +17,29 @@ namespace SandulasWebApp.Controllers
 
         public IActionResult About()
         {
-            ViewData["Message"] = "Your application description page.";
+            ViewData["Message"] = "About me page description";
 
             return View();
         }
 
-        public IActionResult Contact()
-        {
-            ViewData["Message"] = "Your contact page.";
+		public IActionResult Resume()
+		{
+			ViewData["Message"] = "Resume page description";
 
-            return View();
-        }
+			return View();
+		}
 
-        public IActionResult Privacy()
+		public IActionResult Chatbot()
+		{
+			ViewData["Message"] = "Chatbot page description";
+
+			return View();
+		}
+
+		public IActionResult Contact()
         {
+            ViewData["Message"] = "Contact page description";
+
             return View();
         }
 

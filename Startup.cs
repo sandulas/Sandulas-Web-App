@@ -109,8 +109,9 @@ namespace SandulasWebApp
 			app.UseMvc(routes =>
 			{
 				routes.MapRoute(
-					name: "default",
-					template: "{controller=Home}/{action=Index}/{id?}");
+					name: "Main",
+					template: "{action}/{Id?}",
+					defaults: new {controller="Main", action="About"});
 			});
 			app.UseBotFramework();
 		}
