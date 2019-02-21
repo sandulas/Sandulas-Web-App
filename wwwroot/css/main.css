@@ -26,8 +26,8 @@ header {
 	background: #eeeeee;
 }
 header > div {
-	margin: 0 auto;
 	display: flex;
+	margin: 0 auto;
 	padding: 0 20px;
 	max-width: 1200px;
 	height: 100%;
@@ -35,27 +35,27 @@ header > div {
 }
 header > div > div {
 	width: 100%;
-	margin: 0 1px;
+	margin: 0;
+	white-space: nowrap;
+}
+header .right-nav {
+	text-align: right;
 	white-space: nowrap;
 }
 
 /* nav links */
-header a {
+header a.nav {
 	font-size: 1.1rem;
 	display: inline-block;
-	padding: .25em 0;
+	padding: .4em 0;
 }
-header a:hover {
-	border-bottom: solid 4px #333333;
+header a.nav:hover {
+	background: url(/images/dot.svg) no-repeat center bottom;
 }
-header #right div {
-	float: right;
-	white-space: nowrap;
-}
-header #left a {
+header a.left {
 	margin-right: 50px;
 }
-header #right a {
+header a.right {
 	margin-left: 50px;
 }
 

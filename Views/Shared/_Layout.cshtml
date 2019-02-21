@@ -10,10 +10,10 @@
 <body>
 	<header>
 		<div>
-			<div id="left">
+			<div>
 				<a asp-controller="Main" asp-action="Contact" class="title">Adrian Sandu<br /><span>@@sandulas</span></a>
-				<a asp-controller="Main" asp-action="About">About Me</a>
-				<a asp-controller="Main" asp-action="Resume">Resume</a>
+				<a asp-controller="Main" asp-action="About" class="nav left">About Me</a>
+				<a asp-controller="Main" asp-action="Resume" class="nav left">Resume</a>
 			</div>
 			<div class="avatar">
 				<a asp-controller="Main" asp-action="About">
@@ -21,11 +21,9 @@
 				</a>
 				&nbsp;
 			</div>
-			<div id="right">
-				<div>
-					<a asp-controller="Main" asp-action="Chatbot">Chatbot</a>
-					<a asp-controller="Main" asp-action="Contact">Contact</a>
-				</div>
+			<div class="right-nav">
+				<a asp-controller="Main" asp-action="Chatbot" class="nav right">Chatbot</a>
+				<a asp-controller="Main" asp-action="Contact" class="nav right">Contact</a>
 			</div>
 		</div>
 	</header>
