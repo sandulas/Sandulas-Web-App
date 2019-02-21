@@ -9,30 +9,33 @@
 </head>
 <body>
 	<header>
-		<div class="content">
-			<div>
-				<a asp-area="" asp-controller="Main" asp-action="About">About Me</a>
-				<a asp-area="" asp-controller="Main" asp-action="Resume">Resume</a>
+		<div>
+			<div id="left">
+				<a asp-controller="Main" asp-action="Contact" class="title">Adrian Sandu<br /><span>@@sandulas</span></a>
+				<a asp-controller="Main" asp-action="About">About Me</a>
+				<a asp-controller="Main" asp-action="Resume">Resume</a>
 			</div>
-			<div style="flex: 0 0 142px; position: relative;">
-				<img src="~/images/avatar.jpg" style="position: absolute; left: 0; top: -100px;" />
+			<div class="avatar">
+				<a asp-controller="Main" asp-action="About">
+					<img src="~/images/avatar.jpg" />
+				</a>
+				&nbsp;
 			</div>
-			<div>
-				<div style="float: right;">
-					<a asp-area="" asp-controller="Main" asp-action="Chatbot">Chatbot</a>
-					<a asp-area="" asp-controller="Main" asp-action="Contact">Contact</a>
+			<div id="right">
+				<div>
+					<a asp-controller="Main" asp-action="Chatbot">Chatbot</a>
+					<a asp-controller="Main" asp-action="Contact">Contact</a>
 				</div>
 			</div>
 		</div>
 	</header>
-
-	<a asp-area="" asp-controller="Main" asp-action="About"><b>SandulasWebApp</b></a><br /><br />
+	<div class="title">adsfafa</div>
 	
 	@RenderBody()
 
 	<br /><br />
 	<footer>
-		<p>&copy; 2018 - SandulasWebApp</p>
+		<p>&copy; @DateTime.Now.Year - Adrian Sandu</p>
 	</footer>
 
 	@RenderSection("Scripts", required: false)
