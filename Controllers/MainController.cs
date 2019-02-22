@@ -8,19 +8,14 @@ using SandulasWebApp.Models;
 
 namespace SandulasWebApp.Controllers
 {
-    public class MainController : Controller
-    {
-        public IActionResult Index()
-        {
-            return View();
-        }
-
-        public IActionResult About()
-        {
-            ViewData["Message"] = "About me page description";
-
-            return View();
-        }
+	public class MainController : Controller
+	{
+		public IActionResult About()
+		{
+			ViewData["Message"] = "About me page description";
+			ViewBag.SelectedNav = "About";
+			return View();
+		}
 
 		public IActionResult Resume()
 		{
@@ -37,16 +32,16 @@ namespace SandulasWebApp.Controllers
 		}
 
 		public IActionResult Contact()
-        {
-            ViewData["Message"] = "Contact page description";
+		{
+			ViewData["Message"] = "Contact page description";
 
-            return View();
-        }
+			return View();
+		}
 
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        }
-    }
+		[ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+		public IActionResult Error()
+		{
+			return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+		}
+	}
 }

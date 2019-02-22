@@ -5,14 +5,14 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<title>@ViewData["Title"] - SandulasWebApp</title>
 
-	<link rel="stylesheet" href="~/css/main.css" />
+	<link rel="stylesheet" href="~/css/main.css" asp-append-version="true" />
 </head>
 <body>
 	<header>
 		<div>
 			<div>
 				<a asp-controller="Main" asp-action="Contact" class="title">Adrian Sandu<br /><span>@@sandulas</span></a>
-				<a asp-controller="Main" asp-action="About" class="nav left">About Me</a>
+				<a asp-controller="Main" asp-action="About" class="nav left @if (ViewBag.SelectedNav == "About") { <text>selected</text> }">About Me</a>
 				<a asp-controller="Main" asp-action="Resume" class="nav left">Resume</a>
 			</div>
 			<div class="avatar">
@@ -24,11 +24,12 @@
 			<div class="right-nav">
 				<a asp-controller="Main" asp-action="Chatbot" class="nav right">Chatbot</a>
 				<a asp-controller="Main" asp-action="Contact" class="nav right">Contact</a>
+				<span />@*used instead of right padding which is cut off by the browser when resizing the window*@
 			</div>
 		</div>
 	</header>
-	<div class="title">adsfafa</div>
-	
+	@if (true) { <text>id="adfaf"</text> }
+
 	@RenderBody()
 
 	<br /><br />
