@@ -105,7 +105,6 @@ namespace SandulasWebApp
 			//app.UseHttpsRedirection();
 			app.UseStaticFiles();
 
-			//https://stormpath.com/blog/routing-in-asp-net-core
 			app.UseMvc(routes =>
 			{
 				routes.MapRoute(

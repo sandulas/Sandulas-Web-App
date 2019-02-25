@@ -12,8 +12,8 @@
 		<div>
 			<div>
 				<a asp-controller="Main" asp-action="Contact" class="title">Adrian Sandu<br /><span>@@sandulas</span></a>
-				<a asp-controller="Main" asp-action="About" class="nav left @if (ViewBag.SelectedNav == "About") { <text>selected</text> }">About Me</a>
-				<a asp-controller="Main" asp-action="Resume" class="nav left">Resume</a>
+				<a asp-controller="Main" asp-action="About" class="nav left" select-current-route>About Me</a>
+				<a asp-controller="Main" asp-action="Resume" class="nav left" select-current-route>Resume</a>
 			</div>
 			<div class="avatar">
 				<a asp-controller="Main" asp-action="About">
@@ -22,13 +22,12 @@
 				&nbsp;
 			</div>
 			<div class="right-nav">
-				<a asp-controller="Main" asp-action="Chatbot" class="nav right">Chatbot</a>
-				<a asp-controller="Main" asp-action="Contact" class="nav right">Contact</a>
+				<a asp-controller="Main" asp-action="Chatbot" class="nav right" select-current-route>Chatbot</a>
+				<a asp-controller="Main" asp-action="Contact" class="nav right" select-current-route>Contact</a>
 				<span />@*used instead of right padding which is cut off by the browser when resizing the window*@
 			</div>
 		</div>
 	</header>
-	@if (true) { <text>id="adfaf"</text> }
 
 	@RenderBody()
 

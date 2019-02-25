@@ -13,7 +13,6 @@ namespace SandulasWebApp.Controllers
 		public IActionResult About()
 		{
 			ViewData["Message"] = "About me page description";
-			ViewBag.SelectedNav = "About";
 			return View();
 		}
 
