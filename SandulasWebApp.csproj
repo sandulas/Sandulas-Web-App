@@ -11,20 +11,7 @@
     <PackageReference Include="Microsoft.Bot.Builder.AI.QnA" Version="4.2.0" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="QnAMaker\" />
-  </ItemGroup>
-  <ItemGroup>
     <None Remove=".gitignore" />
     <None Remove=".qnamakerrc" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Remove="Views\Home\Index.cshtml" />
-    <Content Remove="Views\Home\Privacy.cshtml" />
-    <Content Remove="Views\Main\Index.cshtml" />
-    <Content Remove="Views\Main\Privacy.cshtml" />
-    <Content Remove="wwwroot\images\avatar.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="wwwroot\images\avatar.jpg" />
   </ItemGroup>
 </Project>
