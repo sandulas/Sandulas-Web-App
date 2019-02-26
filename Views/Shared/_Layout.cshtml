@@ -17,14 +17,14 @@
 			</div>
 			<div class="avatar">
 				<a asp-controller="Main" asp-action="About">
-					<img src="~/images/avatar.jpg" />
+					<img src="~/images/avatar.jpg" asp-append-version="true" />
 				</a>
 				&nbsp;
 			</div>
 			<div class="right-nav">
 				<a asp-controller="Main" asp-action="Chatbot" class="nav right" select-current-route>Chatbot</a>
 				<a asp-controller="Main" asp-action="Contact" class="nav right" select-current-route>Contact</a>
-				<span />@*used instead of right padding which is cut off by the browser when resizing the window*@
+				<span /><!-- used instead of right padding which is cut off by the browser when resizing the window -->
 			</div>
 		</div>
 	</header>
@@ -33,10 +33,32 @@
 
 	<br /><br />
 	<footer>
-		<p>&copy; @DateTime.Now.Year - Adrian Sandu</p>
+		<p>
+			&copy; @DateTime.Now.Year - Adrian Sandu
+			&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+			Viewport size - <span id="viewWidthDisplay"></span> : <span id="viewHeightDisplay"></span>
+		</p>
 	</footer>
 
 	@RenderSection("Scripts", required: false)
+
+	<script src="http://code.jquery.com/jquery-latest.js"></script>
+	<script>
+		$(document).ready(function(e) {
+			showViewportSize();
+		});
+
+		$(window).resize(function(e) {
+		   showViewportSize();
+		});
+
+		function showViewportSize() {
+			var viewWidth = $(window).width();
+			var viewHeight = $(window).height();
+			$('#viewWidthDisplay').text(viewWidth);
+			$('#viewHeightDisplay').text(viewHeight);
+		}
+	</script>
 
 </body>
 </html>

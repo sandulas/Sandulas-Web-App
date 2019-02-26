@@ -19,6 +19,7 @@ namespace SandulasWebApp
 
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
+				.UseUrls("http://0.0.0.0:5000") //bind the webhost to all IP addresses so we can access it from another device
                 .UseStartup<Startup>();
     }
 }
