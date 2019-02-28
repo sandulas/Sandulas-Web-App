@@ -29,7 +29,8 @@ header > div {
 	display: flex;
 	margin: 0 auto;
 	padding-left: 20px;
-	max-width: 1200px;
+	max-width: 1220px;
+	min-width: 620px;
 	height: 100%;
 	align-items: center;
 }
@@ -60,10 +61,10 @@ header a.selected {
 	cursor: default;
 }
 header a.left {
-	margin-right: 50px;
+	margin-right: 45px;
 }
 header a.right {
-	margin-left: 50px;
+	margin-left: 45px;
 }
 
 /* title */
