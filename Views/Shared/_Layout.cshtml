@@ -17,10 +17,11 @@
 				<a asp-controller="Main" asp-action="Resume" class="nav left" select-current-route>Resume</a>
 			</div>
 			<div>
-				<a asp-controller="Main" asp-action="About">
-					<img src="~/images/avatar.jpg" asp-append-version="true" /></a>&nbsp;
+				<a asp-controller="Main" asp-action="About" class="avatar">
+					<img src="~/images/avatar.jpg" asp-append-version="true" /></a>
+				&nbsp;
 			</div>
-			<div class="right-nav">
+			<div>
 				<a asp-controller="Main" asp-action="Chatbot" class="nav right" select-current-route>Chatbot</a>
 				<a asp-controller="Main" asp-action="Contact" class="nav right" select-current-route>Contact</a>
 			</div>
@@ -32,11 +33,13 @@
 
 	<br /><br />
 
-	<div style="display: flex; background: #ff0000;">
-		<div style="background-color: #aaffaa; flex-grow: 1;"></div>
-		<div style="background-color: #ffaaaa; flex-grow: 0; width: 1200px; min-width: 600px; padding: 0 20px;">a</div>
-		<div style="background-color: #aaffaa; flex-grow: 1;"></div>
-	</div>
+	@*
+		<div style="display: flex; background: #ff0000;">
+			<div style="background-color: #aaffaa; flex-grow: 1;"></div>
+			<div style="background-color: #ffaaaa; flex-grow: 0; width: 1200px; min-width: 600px; padding: 0 20px;">a</div>
+			<div style="background-color: #aaffaa; flex-grow: 1;"></div>
+		</div>
+	*@
 
 	<br /><br />
 
