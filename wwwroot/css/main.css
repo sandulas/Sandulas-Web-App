@@ -33,9 +33,9 @@ header a.right { margin-left: 45px; }
 
 /* --- CONTENT ---*/
 
-h1 { font-size: 1.75rem; font-weight: inherit; color: #444444; padding: 2.25rem 1rem; text-align: center; }
+h1 { font-size: 1.75rem; font-weight: inherit; color: #444444; padding: 2.5rem 1rem; margin: 0; text-align: center; }
 
-.content-flexbox { display: flex;}
+.content-flexbox { display: flex; }
 .content-flexbox > div:nth-of-type(odd) { flex: 1; }
 .content-flexbox > div:nth-of-type(2) { width: 1200px; min-width: calc(600px + 2rem); }
 
