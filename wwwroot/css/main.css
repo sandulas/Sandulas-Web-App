@@ -1,6 +1,6 @@
 ﻿@import url('https://fonts.googleapis.com/css?family=Archivo+Narrow:400,600');
 
-html, body { margin: 0px; padding: 0px; background: #ffffff; color: #333333; font-size: 18px; font-family: 'Archivo Narrow', 'Trebuchet MS', sans-serif; }
+html, body { margin: 0px; padding: 0px; background: #ffffff; color: #444444; font-size: 18px; font-family: 'Archivo Narrow', 'Trebuchet MS', sans-serif; }
 a, a:visited { color: inherit; text-decoration: inherit; }
 p {  line-height: 1.5em; margin: .5em 0; }
 
@@ -33,11 +33,21 @@ header a.right { margin-left: 45px; }
 
 /* --- CONTENT ---*/
 
-h1 { font-size: 1.75rem; font-weight: inherit; color: #444444; padding: 2.5rem 1rem; margin: 0; text-align: center; }
+h1 { font-size: 1.75rem; font-weight: inherit; padding: 2.5rem 1rem; margin: 0; text-align: center; }
+.footer { height: 3rem; background: #eeeeee; margin: 2.5rem 0 1.5rem 0; align-items: center; text-align: center; }
 
 .content-flexbox { display: flex; }
 .content-flexbox > div:nth-of-type(odd) { flex: 1; }
-.content-flexbox > div:nth-of-type(2) { width: 1200px; min-width: calc(600px + 2rem); }
+.content-flexbox > div:nth-of-type(2) { width: calc(1200px + 2rem); min-width: calc(600px + 2rem); }
 
-.about-item > div:nth-child(2) > div {  }
-.about-item > div:nth-child(3) { background: #eeeeee; }
+.about-item-left > div:nth-of-type(2) { position: relative; }
+.about-item-left img { position: absolute; width: 12rem; height: 12rem; top: -1.24rem; left: .76rem; border-radius: 50%; border: solid .24rem #ffffff; background: #ffffff; }
+.about-item-left > div > div { min-height: 9rem; margin-left: 7rem; padding: .5rem 1rem .5rem 8.5rem; font-size: 1.1rem; border-radius: 0 0 0 1rem; background: #eeeeee; }
+.about-item-left p:first-child { font-weight: bold; font-size: 110%; }
+.about-item-left > div:nth-of-type(3) { background: #eeeeee; }
+
+.about-item-right > div:nth-of-type(1) { background: #eeeeee; }
+.about-item-right > div:nth-of-type(2) { position: relative; }
+.about-item-right img { position: absolute; width: 12rem; height: 12rem; top: -1.24rem; right: .76rem; border-radius: 50%; border: solid .24rem #ffffff; background: #ffffff; }
+.about-item-right > div > div { min-height: 9rem; margin-right: 7rem; padding: .5rem 8.5rem .5rem 1rem; font-size: 1.1rem; border-radius: 0 0 1rem 0; background: #eeeeee; text-align: right; }
+.about-item-right p:first-child { font-weight: bold; font-size: 110%; }

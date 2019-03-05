@@ -12,28 +12,25 @@ namespace SandulasWebApp.Controllers
 	{
 		public IActionResult About()
 		{
-			ViewData["Message"] = "About me page description";
 			return View();
 		}
 
 		public IActionResult Resume()
 		{
-			ViewData["Message"] = "Resume page description";
+			ViewData["Message"] = "Under construction";
 
 			return View();
 		}
 
 		public IActionResult Chatbot()
 		{
-			ViewData["Message"] = "Chatbot page description";
+			ViewData["Message"] = "Under construction";
 
 			return View();
 		}
 
 		public IActionResult Contact()
 		{
-			ViewData["Message"] = "Contact page description";
-
 			return View();
 		}
 
