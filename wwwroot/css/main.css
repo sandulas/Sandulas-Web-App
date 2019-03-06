@@ -1,10 +1,12 @@
 ﻿@import url('https://fonts.googleapis.com/css?family=Archivo+Narrow:400,600');
 
-html, body { margin: 0px; padding: 0px; background: #ffffff; color: #444444; font-size: 18px; font-family: 'Archivo Narrow', 'Trebuchet MS', sans-serif; }
+html, body { height: 100%; margin: 0px; padding: 0px; background: #ffffff; color: #444444; font-size: 18px; font-family: 'Archivo Narrow', 'Trebuchet MS', sans-serif; }
+body { display: flex; flex-direction: column; justify-content: space-between;}
+
 a, a:visited { color: inherit; text-decoration: inherit; }
 p {  line-height: 1.5em; margin: .5em 0; }
 
-/* --- HEADER --- */
+/* --- HEADER & FOOTER --- */
 
 /* header general layout */
 header { display: flex; height: 3rem; background: #eeeeee; margin-top: 5.3rem; }
@@ -30,11 +32,13 @@ header a.nav:hover, header a.selected { background: url(/images/dot.svg) no-repe
 header a.left { margin-right: 45px; }
 header a.right { margin-left: 45px; }
 
+/* footer */
+.footer { height: 3rem; min-height: 3rem; margin: 2.5rem 0 1.5rem 0; align-items: center; text-align: center; background: #eeeeee; }
+
 
 /* --- CONTENT ---*/
 
 h1 { font-size: 1.75rem; font-weight: inherit; padding: 2.5rem 1rem; margin: 0; text-align: center; }
-.footer { height: 3rem; background: #eeeeee; margin: 2.5rem 0 1.5rem 0; align-items: center; text-align: center; }
 
 .content-flexbox { display: flex; }
 .content-flexbox > div:nth-of-type(odd) { flex: 1; }

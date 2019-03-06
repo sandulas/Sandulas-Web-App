@@ -8,6 +8,8 @@
 	<link rel="stylesheet" href="~/css/main.css" asp-append-version="true" />
 </head>
 <body>
+
+<div>
 	<header>
 		<div></div>
 		<div>
@@ -39,37 +41,39 @@
 	</div>
 
 	@RenderBody()
-	
-	<div class="content-flexbox footer">
-		<div></div>
-		<div>
-			<footer>
-				&copy; @DateTime.Now.Year - Adrian Sandu
-			</footer>
-		</div>
-		<div></div>
+
+</div>
+
+<div class="content-flexbox footer">
+	<div></div>
+	<div>
+		<footer>
+			&copy; @DateTime.Now.Year - Adrian Sandu
+		</footer>
 	</div>
-	
-	@RenderSection("Scripts", required: false)
+	<div></div>
+</div>
 
-	<div style="position: absolute; top: 5px; right: 5px;">Viewport size - <span id="viewWidthDisplay"></span> : <span id="viewHeightDisplay"></span></div>
-	<script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.3.1.min.js"></script>
-	<script>
-		$(document).ready(function(e) {
-			showViewportSize();
-		});
+@RenderSection("Scripts", required: false)
 
-		$(window).resize(function(e) {
-		   showViewportSize();
-		});
+<div style="position: absolute; top: 5px; right: 5px;">Viewport size - <span id="viewWidthDisplay"></span> : <span id="viewHeightDisplay"></span></div>
+<script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.3.1.min.js"></script>
+<script>
+	$(document).ready(function(e) {
+		showViewportSize();
+	});
 
-		function showViewportSize() {
-			var viewWidth = $(window).width();
-			var viewHeight = $(window).height();
-			$('#viewWidthDisplay').text(viewWidth);
-			$('#viewHeightDisplay').text(viewHeight);
-		}
-	</script>
+	$(window).resize(function(e) {
+	   showViewportSize();
+	});
+
+	function showViewportSize() {
+		var viewWidth = $(window).width();
+		var viewHeight = $(window).height();
+		$('#viewWidthDisplay').text(viewWidth);
+		$('#viewHeightDisplay').text(viewHeight);
+	}
+</script>
 
 </body>
 </html>
