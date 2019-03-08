@@ -21,7 +21,7 @@ p {  line-height: 1.5em; margin: .5em 0; }
 	header a.avatar > img { width: 6.4rem; height: 6.4rem; border-radius: 50%; border: solid .2rem #ffffff; background: #ffffff; }
 
 	header a, a:visited { font-weight: 400; color: inherit; text-decoration: inherit; }
-	header a.nav {  position: absolute; display: block; left: 0px; padding: 1rem; font-size: 1.1rem; }
+	header a.nav { position: absolute; display: block; left: 0px; padding: 1rem; font-size: 1.1rem; }
 	header a.nav:hover, header a.selected { color: #ff0000; }
 }
 @media only screen and (min-width: 640px) {
@@ -40,7 +40,7 @@ p {  line-height: 1.5em; margin: .5em 0; }
 	header a.avatar > img { width: 7.9rem; height: 7.9rem; border-radius: 50%; border: solid .24rem #ffffff; background: #ffffff; }
 
 	header a, a:visited { font-weight: 400; color: inherit; text-decoration: inherit; }
-	header a.nav {  display: inline-block; font-size: 1.1rem; padding: .35em 0 .4em 0;  }
+	header a.nav { display: inline-block; font-size: 1.1rem; padding: .3em 0 .35em 0; }
 	header a.nav:hover, header a.selected { background: url(/images/dot.svg) no-repeat center bottom; }
 	header a.left { margin-right: 45px; }
 	header a.right { margin-left: 45px; }
