@@ -17,17 +17,18 @@ header > div > div:nth-of-type(3) { flex: 1; white-space: nowrap;  text-align: r
 header a.title { position: absolute; top: .5rem; font-size: 1.25rem; }
 header a.title span { font-size: 80%;}
 
-header a.navmenu { display: none; }
-
 header a.avatar { position: absolute; top: .5rem; }
 header a.avatar > img { width: 7.9rem; height: 7.9rem; border-radius: 50%; border: solid .24rem #ffffff; background: #ffffff; }
 
 header a, a:visited { font-weight: 400; color: inherit; text-decoration: inherit; }
 header a.nav { display: inline-block; font-size: 1.1rem; padding: .3em 0 .35em 0; }
-header a.nav:hover, header a.selected { background: url(/images/dot.svg) no-repeat center bottom; }
+header a.nav:hover, header a.selected { background: url(/images/line.svg) no-repeat center bottom; }
 header a.left { margin-right: 45px; }
 header a.right { margin-left: 45px; }
 
+@media only screen and (min-width: 640px) {
+	#navMenuIcon, #navMenu { display: none!important; }
+}
 @media only screen and (max-width: 639px) {
 	header { height: 2.2rem; margin-top: 4.2rem; }
 	header > div:nth-of-type(2) { min-width: 0; padding: 0; }
@@ -36,8 +37,11 @@ header a.right { margin-left: 45px; }
 
 	header a.title { left: .7rem; top: .25rem; }
 
-	header a.navmenu { display: inline-block; height: .95rem; padding: .65rem .8rem .6rem .7rem; font-size: 0; }
-	header a.navmenu-on { display: inline-block; height: .95rem; padding: .65rem .8rem .6rem .7rem; background: #333333; font-size: 0; }
+	#navMenuIcon { display: block; width: 2.5rem; height: 2.2rem; background:  #eeeeee url(/images/menu.svg) no-repeat center; font-size: 0; }
+	#navMenuIcon.on { background-image: url(/images/menu_light.svg); background-color: #333333; }
+	#navMenu { display: none; position: absolute; left: 0; top: 6.4rem; padding: 1.1rem 0 .5rem 0; width: 100%; display: none; background: #333333; text-align: center; box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.25); }
+	#navMenu a { display: inline-block; padding: .5rem 1rem; font-size: 1.1rem; background-color: #333333; color: #eeeeee; }
+	#navMenu a:hover, #navMenu a.selected {  background: #333333 url(/images/line_light.svg) no-repeat center 1.8em;  }
 
 	header a.avatar { position: absolute; top: .25rem; }
 	header a.avatar > img { width: 6.4rem; height: 6.4rem; border-radius: 50%; border: solid .2rem #ffffff; background: #ffffff; }

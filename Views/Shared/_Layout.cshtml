@@ -16,12 +16,12 @@
 			<div>
 				<a asp-controller="Main" asp-action="Contact" class="title">Adrian Sandu<br /><span>@@sandulas</span></a>
 
-				<a href="javascript:void(0)" onclick="showHideMenu();" class="navmenu"><img src="~/images/menu.svg" /></a>
-				<div id="responsiveMenu" style="position: absolute; left: 0; top: 4.2rem; display:none; ">
-					<a href="javascript:void(0)" onclick="showHideMenu()" class="navmenu-on">
-						<img src="~/images/menu_on.svg" />
-					</a><br />
-					<a asp-controller="Main" asp-action="About" class="">About Me</a>
+				<a id="navMenuIcon" href="javascript:void(0)" onclick="showHideMenu();"></a>
+				<div id="navMenu">
+					<a asp-controller="Main" asp-action="About" select-current-route>About Me</a><br />
+					<a asp-controller="Main" asp-action="Resume" select-current-route>Resume</a><br />
+					<a asp-controller="Main" asp-action="Chatbot" select-current-route>Chatbot</a><br />
+					<a asp-controller="Main" asp-action="Contact" select-current-route>Contact</a>
 				</div>
 
 				<a asp-controller="Main" asp-action="About" class="nav left" select-current-route>About Me</a>
@@ -85,13 +85,15 @@
 	}
 
 	function showHideMenu() {
-		if ($('#responsiveMenu').is(':visible'))
+		if ($("#navMenu").is(":visible"))
 		{
-			$('#responsiveMenu').hide();
+			$('#navMenuIcon').removeClass("on");
+			$('#navMenu').hide();
 		}
 		else
 		{
-			$('#responsiveMenu').show();
+			$('#navMenuIcon').addClass("on");
+			$('#navMenu').show();
 		}
 	}
 </script>
