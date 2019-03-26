@@ -9,9 +9,9 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Bot.Builder.Integration.AspNet.Core;
 using Microsoft.Bot.Configuration;
 using Microsoft.Bot.Connector.Authentication;
-using Microsoft.Bot.Builder.BotFramework;
 using System.Collections.Generic;
 using Microsoft.Bot.Builder.AI.QnA;
+using Microsoft.AspNetCore.HttpOverrides;
 
 namespace SandulasWebApp
 {
@@ -98,6 +98,12 @@ namespace SandulasWebApp
 			}
 			else
 			{
+				// used to access the app through a reverse proxy
+				app.UseForwardedHeaders(new ForwardedHeadersOptions
+				{
+					ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto
+				});
+
 				app.UseExceptionHandler("/Home/Error");
 				app.UseHsts();
 			}
