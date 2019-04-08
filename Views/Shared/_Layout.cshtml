@@ -3,96 +3,100 @@
 <head>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<title>@ViewData["Title"] - SandulasWebApp</title>
+	<link rel="icon" href="~/images/favicon.png" />
+	<title>Adrian Sandu - @ViewData["Title"]</title>
 
 	<link rel="stylesheet" href="~/css/main.css" asp-append-version="true" />
 </head>
 <body>
 
-<div>
-	<header>
-		<div></div>
-		<div>
-			<div>
-				<a asp-controller="Main" asp-action="Contact" class="title">Adrian Sandu<br /><span>@@sandulas</span></a>
-
-				<a id="navMenuIcon" href="javascript:void(0)" onclick="showHideMenu();"></a>
-				<div id="navMenu">
-					<a asp-controller="Main" asp-action="About" select-current-route>About Me</a><br />
-					<a asp-controller="Main" asp-action="Resume" select-current-route>Resume</a><br />
-					<a asp-controller="Main" asp-action="Chatbot" select-current-route>Chatbot</a><br />
-					<a asp-controller="Main" asp-action="Contact" select-current-route>Contact</a>
-				</div>
-
-				<a asp-controller="Main" asp-action="About" class="nav left" select-current-route>About Me</a>
-				<a asp-controller="Main" asp-action="Resume" class="nav left" select-current-route>Resume</a>
-			</div>
-			<div>
-				<a asp-controller="Main" asp-action="About" class="avatar"><img src="~/images/avatar.jpg" /></a>
-			</div>
-			<div>
-				<a asp-controller="Main" asp-action="Chatbot" class="nav right" select-current-route>Chatbot</a>
-				<a asp-controller="Main" asp-action="Contact" class="nav right" select-current-route>Contact</a>
-			</div>
-		</div>
-		<div></div>
-	</header>
-
-	<div class="content-flexbox">
-		<div></div>
-		<div>
-			<h1>@ViewData["Title"]</h1>
-		</div>
-		<div></div>
-	</div>
-
-	@RenderBody()
-
-</div>
-
-<div class="content-flexbox footer">
-	<div></div>
 	<div>
-		<footer>
-			&copy; @DateTime.Now.Year - Adrian Sandu
-		</footer>
+		<header>
+			<div></div>
+			<div>
+				<div>
+					<a asp-controller="Main" asp-action="Contact" class="title">Adrian Sandu<br /><span>@@sandulas</span></a>
+
+					<a id="navMenuIcon" href="javascript:void(0)" onclick="showHideMenu();"></a>
+					<div id="navMenu">
+						<a asp-controller="Main" asp-action="About" select-current-route>About Me</a><br />
+						<a asp-controller="Main" asp-action="Resume" select-current-route>Resume</a><br />
+						<a asp-controller="Main" asp-action="Chatbot" select-current-route>Chatbot</a><br />
+						<a asp-controller="Main" asp-action="Contact" select-current-route>Contact</a>
+					</div>
+
+					<a asp-controller="Main" asp-action="About" class="nav left" select-current-route>About Me</a>
+					<a asp-controller="Main" asp-action="Resume" class="nav left" select-current-route>Resume</a>
+				</div>
+				<div>
+					<a asp-controller="Main" asp-action="About" class="avatar"><img src="~/images/avatar.jpg" /></a>
+				</div>
+				<div>
+					<a asp-controller="Main" asp-action="Chatbot" class="nav right" select-current-route>Chatbot</a>
+					<a asp-controller="Main" asp-action="Contact" class="nav right" select-current-route>Contact</a>
+				</div>
+			</div>
+			<div></div>
+		</header>
+
+		<div class="content-flexbox">
+			<div></div>
+			<div>
+				<h1>@ViewData["Title"]</h1>
+			</div>
+			<div></div>
+		</div>
+
+		@RenderBody()
+
 	</div>
-	<div></div>
-</div>
 
-@RenderSection("Scripts", required: false)
+	<div class="content-flexbox footer">
+		<div></div>
+		<div>
+			<footer>
+				&copy; @DateTime.Now.Year - Adrian Sandu
+			</footer>
+		</div>
+		<div></div>
+	</div>
 
-<div style="position: absolute; top: 5px; right: 5px;">Viewport size - <span id="viewWidthDisplay"></span> : <span id="viewHeightDisplay"></span></div>
-<script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.3.1.min.js"></script>
-<script>
-	$(document).ready(function(e) {
-		showViewportSize();
-	});
+	@RenderSection("Scripts", required: false)
 
-	$(window).resize(function(e) {
-	   showViewportSize();
-	});
+	@*<div style="position: absolute; top: 5px; right: 5px;">Viewport size - <span id="viewWidthDisplay"></span> : <span id="viewHeightDisplay"></span></div>*@
 
-	function showViewportSize() {
-		var viewWidth = $(window).width();
-		var viewHeight = $(window).height();
-		$('#viewWidthDisplay').text(viewWidth);
-		$('#viewHeightDisplay').text(viewHeight);
-	}
+	<script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.3.1.min.js"></script>
+	<script>
+		@*
+		$(document).ready(function(e) {
+			showViewportSize();
+		});
 
-	function showHideMenu() {
-		if ($("#navMenu").is(":visible"))
-		{
-			$('#navMenuIcon').removeClass("on");
-			$('#navMenu').hide();
+		$(window).resize(function(e) {
+		   showViewportSize();
+		});
+		*@
+
+		function showViewportSize() {
+			var viewWidth = $(window).width();
+			var viewHeight = $(window).height();
+			$('#viewWidthDisplay').text(viewWidth);
+			$('#viewHeightDisplay').text(viewHeight);
 		}
-		else
-		{
-			$('#navMenuIcon').addClass("on");
-			$('#navMenu').show();
+
+		function showHideMenu() {
+			if ($("#navMenu").is(":visible"))
+			{
+				$('#navMenuIcon').removeClass("on");
+				$('#navMenu').hide();
+			}
+			else
+			{
+				$('#navMenuIcon').addClass("on");
+				$('#navMenu').show();
+			}
 		}
-	}
-</script>
+	</script>
 
 </body>
 </html>
