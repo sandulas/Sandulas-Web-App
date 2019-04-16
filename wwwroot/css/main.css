@@ -22,7 +22,7 @@ header a.title span { font-size: 80%;}
 header a.avatar { position: absolute; top: .5rem; }
 header a.avatar > img { width: 7.9rem; height: 7.9rem; border-radius: 50%; border: solid .24rem #ffffff; background: #ffffff; }
 
-header a, header a:visited { font-weight: 400; color: inherit; text-decoration: inherit; }
+header a, header a:visited, header a:hover { font-weight: 400; color: inherit; text-decoration: inherit; }
 header a.nav { display: inline-block; font-size: 1.1rem; padding: .3em 0 .35em 0; }
 header a.nav:hover, header a.selected { background: url(/images/line.svg) no-repeat center bottom; color: #333333; }
 header a.left { margin-right: 45px; }
@@ -41,7 +41,7 @@ header a.right { margin-left: 45px; }
 
 	#navMenuIcon { display: block; width: 2.5rem; height: 2.2rem; background:  #eeeeee url(/images/menu.svg) no-repeat center; font-size: 0; }
 	#navMenuIcon.on { background-image: url(/images/menu_light.svg); background-color: #333333; }
-	#navMenu { display: none; position: absolute; z-index: 1; left: 0; top: 6.4rem; padding: 1.1rem 0 .5rem 0; width: 100%; display: none; background: #333333; text-align: center; box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.25); }
+	#navMenu { display: none; position: absolute; z-index: 2; left: 0; top: 6.4rem; padding: 1.1rem 0 .5rem 0; width: 100%; display: none; background: #333333; text-align: center; box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.25); }
 	#navMenu a { display: inline-block; padding: .5rem 1rem; font-size: 1.1rem; background-color: #333333; color: #eeeeee; }
 	#navMenu a:hover, #navMenu a.selected {  background: #333333 url(/images/line_light.svg) no-repeat center 1.8em;  }
 
@@ -93,16 +93,27 @@ h1 { font-size: 1.75rem; font-weight: 400; padding: 2.5rem 1rem; margin: 0; text
 }
 
 /* resume page */
-.resume-header { margin: 0 1rem; border-radius: 99999px; background: #eeeeee; position: relative; }
+.resume-header { margin: 0 1rem; border-radius: 999px; background: #eeeeee; position: relative; }
 .resume-header > img { width: 5rem; height: 5rem; position: absolute; z-index: 1; top: -1.22rem; left: -.24rem; border-radius: 50%; border: solid .24rem #ffffff; background-color: #ffffff;}
 .resume-header > h2 { padding: .8rem 7rem; margin: 0; font-size: 1.55rem; font-weight: 600; }
 
-.resume-content { padding: 2rem 1.5rem 0 6rem; font-size: 1.1rem; background: url(/images/dot.svg) repeat-y 3.4rem top; position: relative; }
+.resume-content { padding: 2.2rem 1.5rem 0 6rem; font-size: 1.1rem; background: url(/images/dot.svg) repeat-y 3.4rem top; position: relative; }
 .resume-content + .resume-header {  margin-top: 5rem; }
 .resume-content:last-child { margin-bottom: 4rem; }
-.resume-content > p { font-size: 110%; font-weight: 600; margin: 0; line-height: 1.6rem; position: relative; }
-.resume-content > p > img { width: .55rem; height: .55rem; position: absolute; left: -2.82rem; top: .5rem; } 
-.resume-content > p > span { font-size: 90%; font-weight: 400; }
-.resume-content > ul { padding: .5rem 0 0 1em; margin: 0; line-height: 1.5rem; }
+.resume-content > p { font-size: 110%; font-weight: 600; margin: 0; line-height: 1.3rem; position: relative; }
+.resume-content > p > img { width: .55rem; height: .55rem; position: absolute; left: -2.82rem; top: .3rem; } 
+.resume-content > p > span { font-size: 90%; font-weight: 400; line-height: 1.8rem; }
+.resume-content > ul { padding: .4rem 0 0 1em; margin: 0; line-height: 1.5rem; }
 .resume-content li > span { margin-left: -.3rem; display: block; }
 .resume-content > div { width: .55rem; height: 2px; position: absolute; left: 3.18rem; bottom: 0rem; background: url(/images/dot.svg) repeat-x; }
+
+@media only screen and (max-width: 639px) {
+	.resume-header { margin: 0 .333rem .2rem 0; border-radius: 0 999px 999px 0; }
+	.resume-header > img { width: 3.89rem; height: 3.89rem; top: -0.8rem; left: .44rem; border-width: .166rem; }
+	.resume-header > h2 { padding: .7rem 5.7rem; font-size: 1.33rem; }
+
+	.resume-content { padding: 1.6rem 1rem 0 .66rem; font-size: 1.1rem; background: none; }
+	.resume-content + .resume-header {  margin-top: 3.5rem; }
+	.resume-content:last-child { margin-bottom: 3rem; }
+	.resume-content > div { display: none; }
+}
