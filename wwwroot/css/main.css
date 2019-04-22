@@ -125,5 +125,17 @@ h1 { font-size: 1.75rem; font-weight: 400; padding: 2.5rem 1rem; margin: 0; text
 .contact-content { padding: 0 1rem; }
 .contact-content > p:first-child { font-size: 1.22rem; font-weight: 600; }
 .contact-content > p.section-end { padding-bottom: 2rem; margin-bottom: 2.5rem; border-bottom: solid 2px #333333; }
-.contact-content > p { font-size: 1.11rem; margin: 1.1rem 0; }
-.contact-content img  { width: 1.8rem; vertical-align: middle; margin: 0 .3rem .2rem 0; }
+.contact-content > p { font-size: 1.11rem; margin: 1rem 0; }
+.contact-content img  { width: 1.6rem; vertical-align: middle; margin: 0 .3rem .4rem 0; }
+
+@media only screen and (max-width: 639px) {
+	.contact-content { padding: 0 .5rem; }
+}
+
+/* chatbot page */
+.chatbot-content { padding: 0 1rem; }
+.chatbot-content p { font-size: 1.2rem; font-weight: bold; }
+
+@media only screen and (max-width: 639px) {
+	.chatbot-content { padding: 0 .5rem; }
+}
