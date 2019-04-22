@@ -7,6 +7,9 @@ p {  line-height: 1.5em; margin: .5em 0; }
 a, a.visited { color: #0088dd; text-decoration: none; }
 a:hover { color: #1ba7ff; }
 
+a.content { color: #333333; }
+a.content:hover { color: #0088dd; }
+
 /* header */
 header { display: flex; height: 3rem; background: #eeeeee; margin-top: 5.3rem; }
 header > div:nth-of-type(odd) { flex-grow: 1; }
@@ -119,7 +122,8 @@ h1 { font-size: 1.75rem; font-weight: 400; padding: 2.5rem 1rem; margin: 0; text
 }
 
 /* contact page */
-.contact-content { display: flex; max-width: 650px; margin: 0 auto; flex-wrap: wrap; justify-content: space-around; }
-.contact-content > div { padding: 0 1rem; }
-.contact-content p { font-size: 1.2rem; margin: 1.1rem 0; }
-.contact-content img { width: 1.8rem; vertical-align: middle; margin: 0 .3rem .2rem 0; }
+.contact-content { padding: 0 1rem; }
+.contact-content > p:first-child { font-size: 1.22rem; font-weight: 600; }
+.contact-content > p.section-end { padding-bottom: 2rem; margin-bottom: 2.5rem; border-bottom: solid 2px #333333; }
+.contact-content > p { font-size: 1.11rem; margin: 1.1rem 0; }
+.contact-content img  { width: 1.8rem; vertical-align: middle; margin: 0 .3rem .2rem 0; }
