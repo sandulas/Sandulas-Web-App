@@ -133,9 +133,9 @@ h1 { font-size: 1.75rem; font-weight: 400; padding: 2.5rem 1rem; margin: 0; text
 }
 
 /* chatbot page */
-.chatbot-content { padding: 0 1rem; }
+.chatbot-content { padding: 0 1rem 2rem 1rem; }
 .chatbot-content p { font-size: 1.2rem; font-weight: bold; }
 
 @media only screen and (max-width: 639px) {
-	.chatbot-content { padding: 0 .5rem; }
+	.chatbot-content { padding: 0 .5rem 2rem .5rem; }
 }
