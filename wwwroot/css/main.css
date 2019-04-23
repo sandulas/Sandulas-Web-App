@@ -71,7 +71,7 @@ h1 { font-size: 1.75rem; font-weight: 400; padding: 2.5rem 1rem; margin: 0; text
 /* about page */
 .about-item-left { margin-bottom: 5rem; }
 .about-item-left > div:nth-of-type(2) { position: relative; }
-.about-item-left img { position: absolute; width: 12rem; height: 12rem; top: -1.24rem; left: .76rem; border-radius: 50%; border: solid .24rem #ffffff; background: #ffffff; }
+.about-item-left img { position: absolute; width: 12rem; height: 12rem; top: -1.24rem; left: .76rem; border-radius: 50%; border: solid .22rem #ffffff; background: #ffffff; }
 .about-item-left > div > div { min-height: 9rem; margin-left: 7rem; padding: .5rem 1rem .5rem 8.5rem; font-size: 1.1rem; border-radius: 0 0 0 1rem; background: #eeeeee; }
 .about-item-left p:first-child { font-size: 110%; font-weight: 600; }
 .about-item-left > div:nth-of-type(3) { background: #eeeeee; }
@@ -79,7 +79,7 @@ h1 { font-size: 1.75rem; font-weight: 400; padding: 2.5rem 1rem; margin: 0; text
 .about-item-right { margin-bottom: 5rem; }
 .about-item-right > div:nth-of-type(1) { background: #eeeeee; }
 .about-item-right > div:nth-of-type(2) { position: relative; }
-.about-item-right img { position: absolute; width: 12rem; height: 12rem; top: -1.24rem; right: .76rem; border-radius: 50%; border: solid .24rem #ffffff; background: #ffffff; }
+.about-item-right img { position: absolute; width: 12rem; height: 12rem; top: -1.24rem; right: .76rem; border-radius: 50%; border: solid .22rem #ffffff; background: #ffffff; }
 .about-item-right > div > div { min-height: 9rem; margin-right: 7rem; padding: .5rem 8.5rem .5rem 1rem; font-size: 1.1rem; border-radius: 0 0 1rem 0; background: #eeeeee; text-align: right; }
 .about-item-right p:first-child { font-size: 110%; font-weight: 600; }
 
