@@ -40,13 +40,13 @@ namespace SandulasWebApp
 			var botFilePath = Configuration.GetSection("botFilePath")?.Value;
 			if (!File.Exists(botFilePath))
 			{
-				throw new FileNotFoundException($"The .bot configuration file was not found. botFilePath: {botFilePath}");
+				throw new FileNotFoundException($"The .bot configuration file was not found. botFilePath: { botFilePath }");
 			}
 
 			BotConfiguration botConfig = null;
 			try
 			{
-				botConfig = BotConfiguration.Load(botFilePath ?? @".\BotConfiguration.bot", secretKey);
+				botConfig = BotConfiguration.Load(botFilePath, secretKey);
 			}
 			catch
 			{

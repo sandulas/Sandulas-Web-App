@@ -17,14 +17,12 @@ namespace SandulasWebApp.Controllers
 
 		public IActionResult Resume()
 		{
-			ViewData["Message"] = "Under construction";
-
 			return View();
 		}
 
 		public IActionResult Chatbot()
 		{
-			ViewData["Message"] = "Under construction";
+			ViewData["Message"] = "Under construction!";
 
 			return View();
 		}
