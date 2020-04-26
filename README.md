@@ -1,3 +1,3 @@
 # Sandulas Web App
 
-Personal ASP.NET Core Website
+Personal Website - ASP.NET Core
