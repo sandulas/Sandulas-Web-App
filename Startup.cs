@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 using Microsoft.Bot.Builder.Integration.AspNet.Core;
 using Microsoft.Bot.Configuration;
 using Microsoft.Bot.Connector.Authentication;
@@ -18,9 +19,10 @@ namespace SandulasWebApp
 	public class Startup
 	{
 		public IConfiguration Configuration { get; }
-		string hostingEnvironment;
 
-		public Startup(IHostingEnvironment env)
+		readonly string hostingEnvironment;
+
+		public Startup(IWebHostEnvironment env)
 		{
 			hostingEnvironment = env.EnvironmentName;
 
@@ -59,7 +61,7 @@ namespace SandulasWebApp
 			}
 
 			services.AddSingleton(sp => botConfig);
-			services.AddSingleton(sp => initQnABotServices(botConfig));
+			services.AddSingleton(sp => InitQnABotServices(botConfig));
 
 			#endregion
 
@@ -86,11 +88,11 @@ namespace SandulasWebApp
 
 			#endregion
 
-			services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+			services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
 		}
 
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-		public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+		public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
 		{
 			if (env.IsDevelopment())
 			{
@@ -110,18 +112,19 @@ namespace SandulasWebApp
 
 			//app.UseHttpsRedirection();
 			app.UseStaticFiles();
-
-			app.UseMvc(routes =>
+			app.UseRouting();
+			app.UseEndpoints(endpoints =>
 			{
-				routes.MapRoute(
+				endpoints.MapControllerRoute(
 					name: "Main",
-					template: "{action}/{Id?}",
-					defaults: new {controller="Main", action="About"});
+					pattern: "{action}/{Id?}",
+					defaults: new { controller = "Main", action = "About" });
 			});
+
 			app.UseBotFramework();
 		}
 
-		private QnAServices initQnABotServices(BotConfiguration botConfig)
+		private QnAServices InitQnABotServices(BotConfiguration botConfig)
 		{
 			var qnaServices = new Dictionary<string, QnAMaker>();
 
